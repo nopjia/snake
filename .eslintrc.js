@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
   },
+  parser: "babel-eslint",
   extends: ["airbnb", "plugin:prettier/recommended"],
   rules: {
     curly: ["error", "all"],
