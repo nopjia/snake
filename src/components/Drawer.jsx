@@ -8,7 +8,11 @@ class Drawer extends React.Component {
   }
 
   handleToggleOpen = () => {
-    this.setState((state) => ({ opened: !state.opened }));
+    this.setState((state) => {
+      const opened = !state.opened;
+      this.props.onToggle && this.props.onToggle(opened);
+      return { opened };
+    });
   };
 
   render() {
@@ -21,10 +25,10 @@ class Drawer extends React.Component {
         <div className="bar">
           <Tooltip title={this.state.opened ? "Close" : "Discover More!"}>
             <Fab onClick={this.handleToggleOpen}>
-              <Icon>{this.state.opened ? "close" : "more_vert"}</Icon>
+              <Icon>{this.state.opened ? "close" : "menu"}</Icon>
             </Fab>
           </Tooltip>
-          <Tooltip title="Upload Your Pattern!">
+          <Tooltip title="Submit Your Pattern!">
             <Fab>
               <Icon>add</Icon>
             </Fab>
