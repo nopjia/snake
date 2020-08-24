@@ -5,7 +5,9 @@ const GalleryList = (props) => {
   let elems;
   if (props.items) {
     elems = props.items.map((item) => {
-      return <GalleryItem item={item} onClick={props.onItemClick} />;
+      return (
+        <GalleryItem item={item} onClick={props.onItemClick} key={item.id} />
+      );
     });
   }
 
