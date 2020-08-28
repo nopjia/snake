@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Container } from "@material-ui/core";
 import axios from "axios";
+import Snake from "snake";
 import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
 
@@ -14,6 +15,14 @@ class App extends React.Component {
     };
 
     this.firstOpened = false;
+    this.canvasContainerRef = React.createRef();
+    this.rc = null;
+  }
+
+  componentDidMount() {
+    this.rc = new Snake(this.canvasContainerRef.current);
+    this.rc.initSnake(`${process.env.PUBLIC_URL}/block.gltf`);
+    this.rc.ul.running = true;
   }
 
   handleItemClick = (item) => {
@@ -33,7 +42,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <div className="canvas bg_checker" />
+        <div className="canvas bg_checker" ref={this.canvasContainerRef} />
         <Drawer onToggle={this.handleDrawerToggle}>
           <Container>
             <h1>Official Patterns</h1>
