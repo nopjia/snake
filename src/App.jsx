@@ -17,34 +17,33 @@ class App extends React.Component {
       drawerOpened: false,
     };
 
-    this.firstOpened = false;
     this.canvasContainerRef = React.createRef();
     this.submitFormRef = React.createRef();
     this.rc = null;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this.rc = new Snake(this.canvasContainerRef.current);
     this.rc.initSnake(`${process.env.PUBLIC_URL}/block.gltf`);
     this.rc.ul.running = true;
+
+    const res = await axios.get("https://snake-loopback.herokuapp.com/shapes");
+    this.setState({ shapes: res.data });
   }
 
   handleItemClick = (item) => {
-    console.log("clicked", item.name);
+    this.rc.snake.setConfigSequential(item.sequence);
+    this.setState({ drawerOpened: false });
   };
 
   handleTabChange = (e, value) => {
     this.setState({ tab: value });
   };
 
-  handleDrawerToggle = async (opened) => {
-    if (!opened || this.firstOpened) {
-      return;
-    }
-    this.firstOpened = true;
-
-    const res = await axios.get("https://snake-loopback.herokuapp.com/shapes");
-    this.setState({ shapes: res.data });
+  handleDrawerToggle = async () => {
+    this.setState((state) => {
+      return { drawerOpened: !state.drawerOpened };
+    });
   };
 
   handleCameraClick = () => {

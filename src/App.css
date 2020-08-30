@@ -80,14 +80,21 @@ html, body {
     grid-template-columns: 1fr 1fr 1fr;
   }  
 }
-@media (min-width: 960px) {
+@media (min-width: 780px) {
   .gallerylist {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 960px) {
+  .gallerylist {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
 .gallerylist .galleryitem {
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
 }
 
 .gallerylist .galleryitem .image {
@@ -108,8 +115,6 @@ html, body {
   margin-top: -64px;
   height: 64px;
   padding: 12px;
-  
-  color: white;
   
   display: flex;
   flex-direction: row;
@@ -140,7 +145,7 @@ html, body {
   background-repeat: no-repeat;
   background-position-y: center;
   background-size: 100%;
-  
+
   width: 256px;
   height: 256px;
   border-radius: 4px;
