@@ -1,10 +1,11 @@
 import React from "react";
 import "./App.css";
-import { Container } from "@material-ui/core";
+import { Container, Tabs, Tab } from "@material-ui/core";
 import axios from "axios";
 import Snake from "snake";
 import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
+import SubmitForm from "./components/SubmitForm";
 
 class App extends React.Component {
   constructor(props) {
@@ -12,10 +13,13 @@ class App extends React.Component {
 
     this.state = {
       shapes: [],
+      tab: 1,
+      drawerOpened: false,
     };
 
     this.firstOpened = false;
     this.canvasContainerRef = React.createRef();
+    this.submitFormRef = React.createRef();
     this.rc = null;
   }
 
@@ -29,6 +33,10 @@ class App extends React.Component {
     console.log("clicked", item.name);
   };
 
+  handleTabChange = (e, value) => {
+    this.setState({ tab: value });
+  };
+
   handleDrawerToggle = async (opened) => {
     if (!opened || this.firstOpened) {
       return;
@@ -39,20 +47,56 @@ class App extends React.Component {
     this.setState({ shapes: res.data });
   };
 
+  handleCameraClick = () => {
+    this.submitFormRef.current.open(this.rc);
+  };
+
+  handleSubmit = async (data) => {
+    console.log("SUBMIT", data);
+    const res = await axios.post(
+      "https://snake-loopback.herokuapp.com/shapes",
+      data
+    );
+    console.log("SUBMIT", res);
+  };
+
   render() {
     return (
       <div className="App">
         <div className="canvas bg_checker" ref={this.canvasContainerRef} />
-        <Drawer onToggle={this.handleDrawerToggle}>
-          <Container>
-            <h1>Official Patterns</h1>
-            <GalleryList
-              items={this.state.shapes}
-              onItemClick={this.handleItemClick}
-            />
-            <h1>Submitted Patterns</h1>
-          </Container>
+        <Drawer
+          opened={this.state.drawerOpened}
+          onToggle={this.handleDrawerToggle}
+          onCamera={this.handleCameraClick}
+          onRotateLeft={() => this.rc.snakeMgr.rotateSelected(1)}
+          onRotateRight={() => this.rc.snakeMgr.rotateSelected(-1)}
+        >
+          <Tabs
+            className="content_tabs"
+            value={this.state.tab}
+            onChange={this.handleTabChange}
+            indicatorColor="primary"
+            textColor="primary"
+            centered
+          >
+            <Tab label="Standard" />
+            <Tab label="Browse" />
+          </Tabs>
+          <div className="content_wrap">
+            <Container>
+              <div hidden={this.state.tab !== 0}>
+                <p>Learn from these standard shapes!</p>
+              </div>
+              <div hidden={this.state.tab !== 1}>
+                <GalleryList
+                  items={this.state.shapes}
+                  onItemClick={this.handleItemClick}
+                />
+              </div>
+            </Container>
+          </div>
         </Drawer>
+        <SubmitForm onSubmit={this.handleSubmit} ref={this.submitFormRef} />
       </div>
     );
   }

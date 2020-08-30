@@ -1,10 +1,10 @@
 import React from "react";
-import { Fab, Icon, Tooltip } from "@material-ui/core";
+import { Fab, Icon } from "@material-ui/core";
 
 class Drawer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { opened: true };
+    this.state = { opened: props.opened };
   }
 
   handleToggleOpen = () => {
@@ -23,16 +23,24 @@ class Drawer extends React.Component {
     return (
       <div className={className}>
         <div className="bar">
-          <Tooltip title={this.state.opened ? "Close" : "Discover More!"}>
-            <Fab onClick={this.handleToggleOpen}>
-              <Icon>{this.state.opened ? "close" : "menu"}</Icon>
-            </Fab>
-          </Tooltip>
-          <Tooltip title="Submit Your Pattern!">
-            <Fab>
-              <Icon>add</Icon>
-            </Fab>
-          </Tooltip>
+          <Fab
+            onClick={this.props.onCamera}
+            style={{ position: "absolute", left: "0" }}
+          >
+            <Icon>camera_alt</Icon>
+          </Fab>
+          <Fab onClick={this.props.onRotateLeft}>
+            <Icon>undo</Icon>
+          </Fab>
+          <Fab onClick={this.props.onRotateRight}>
+            <Icon>redo</Icon>
+          </Fab>
+          <Fab
+            onClick={this.handleToggleOpen}
+            style={{ position: "absolute", right: "0" }}
+          >
+            <Icon>{this.state.opened ? "close" : "collections"}</Icon>
+          </Fab>
         </div>
         <div className="content">{this.props.children}</div>
       </div>
