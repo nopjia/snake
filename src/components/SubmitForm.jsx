@@ -36,7 +36,7 @@ class SubmitForm extends React.Component {
     }
     const formData = {
       name: this.state.inputNameValue,
-      sequence: this.rc.snake.getConfig(),
+      sequence: this.rc.snake.getSequence(),
       image: this.state.image,
     };
     this.props.onSubmit(formData);

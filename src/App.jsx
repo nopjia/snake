@@ -32,7 +32,7 @@ class App extends React.Component {
   }
 
   handleItemClick = (item) => {
-    this.rc.snake.setConfigSequential(item.sequence);
+    this.rc.snake.setSequenceSequential(item.sequence);
     this.setState({ drawerOpened: false });
   };
 

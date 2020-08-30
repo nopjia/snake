@@ -31,19 +31,34 @@ html, body {
   width: 100%;
   height: 100%;
   left: 0;
-  top: calc(100vh - 95px);
+  top: calc(100vh - 15px);
   transition: top 0.5s ease;
 }
 
 .drawer.opened {
-  top: 0;
+  top: 80px;
 }
 
 .drawer .bar {
-  height: 80px;
+  margin-top: -68px;
+  height: 68px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
+  grid-template-areas: "left center right";
+  align-items: start;
+}
+@media (max-width: 600px) {
+  .drawer.opened {
+    top: 148px;
+  }
+  .drawer .bar {
+    margin-top: -136px;
+    height: 136px;
+    grid-template-columns: 1fr 1fr;    
+    grid-template-areas:
+      "left right"
+      "center center";
+  }
 }
 .drawer .bar > div {
   flex-grow: 1;
@@ -51,16 +66,19 @@ html, body {
 .drawer .bar .left {
   display: flex;
   flex-direction: row;
+  grid-area: left;
 }
 .drawer .bar .right {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  grid-area: right;
 }
 .drawer .bar .center {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  grid-area: center;
 }
 .drawer .bar .left > button { margin-left: 12px; }
 .drawer .bar .right > button { margin-right: 12px; }
@@ -70,7 +88,7 @@ html, body {
   background: #fafafa;
   border-radius: 15px 15px 0px 0px;
   box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 6px 10px 0px rgba(0,0,0,0.14), 0px 1px 18px 0px rgba(0,0,0,0.12);
-  height: calc(100% - 80px);
+  height: 100%;
   overflow: hidden;
 }
 
