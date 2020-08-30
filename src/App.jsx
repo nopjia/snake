@@ -69,6 +69,10 @@ class App extends React.Component {
           onCamera={this.handleCameraClick}
           onRotateLeft={() => this.rc.snakeMgr.rotateSelected(1)}
           onRotateRight={() => this.rc.snakeMgr.rotateSelected(-1)}
+          onMoveLeft={() => this.rc.snakeMgr.incrementSelected()}
+          onMoveRight={() => this.rc.snakeMgr.decrementSelected()}
+          onReset={() => this.rc.snake.reset()}
+          onFocus={() => this.rc.snakeMgr.centerCameraAsync()}
         >
           <Tabs
             className="content_tabs"

@@ -45,6 +45,8 @@ class SubmitForm extends React.Component {
 
   open(rc) {
     this.rc = rc;
+    this.rc.snakeMgr.selected = undefined;
+    this.rc.snakeMgr.centerCamera(); // zoom to fit
     this.setState({
       opened: true,
       image: this.rc.getScreenshot(256, 256),
