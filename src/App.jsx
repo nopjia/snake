@@ -30,7 +30,7 @@ class App extends React.Component {
     );
     this.rc.ul.running = true;
 
-    const res = await axios.get("https://snake-loopback.herokuapp.com/shapes");
+    const res = await axios.get(`${process.env.REACT_APP_API_URL}/shapes`);
     this.setState({ shapes: res.data });
   }
 
@@ -69,7 +69,7 @@ class App extends React.Component {
   };
 
   handleSubmit = async (data) => {
-    await axios.post("https://snake-loopback.herokuapp.com/shapes", data);
+    await axios.post(`${process.env.API_URL}/shapes`, data);
   };
 
   render() {
