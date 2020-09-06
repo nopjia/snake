@@ -24,7 +24,10 @@ class App extends React.Component {
 
   async componentDidMount() {
     this.rc = new Snake(this.canvasContainerRef.current);
-    this.rc.initSnake(`${process.env.PUBLIC_URL}/block.gltf`);
+    this.rc.initSnake(
+      `${process.env.PUBLIC_URL}/block.gltf`,
+      `${process.env.PUBLIC_URL}/matcap.jpg`
+    );
     this.rc.ul.running = true;
 
     const res = await axios.get("https://snake-loopback.herokuapp.com/shapes");
