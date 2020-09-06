@@ -43,12 +43,12 @@ class SubmitForm extends React.Component {
     this.setState({ opened: false });
   }
 
-  open(sequence, image, hasCollision) {
+  open(sequence, image, errorMsg) {
     this.setState({
       opened: true,
       image,
       sequence,
-      alertError: hasCollision ? "Your shape has errors!" : "",
+      alertError: errorMsg,
     });
   }
 

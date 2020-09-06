@@ -70,11 +70,23 @@ class App extends React.Component {
   handleCameraClick = async () => {
     this.rc.snakeMgr.selected = undefined;
     await this.rc.snakeMgr.focusCamera();
-    this.submitFormRef.current.open(
-      this.rc.snake.getSequence(),
-      this.rc.getScreenshot(256, 256),
-      this.rc.snake.hasCollision
-    );
+
+    const sequence = this.rc.snake.getSequence();
+    const image = this.rc.getScreenshot(256, 256);
+
+    let errorMsg = "";
+    if (this.rc.snake.hasCollision) {
+      errorMsg = "Your shape has errors!";
+    } else {
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/shapes/hasSequence/${sequence}`
+      );
+      if (res.data) {
+        errorMsg = "Your shape already exists! Sorry!";
+      }
+    }
+
+    this.submitFormRef.current.open(sequence, image, errorMsg);
   };
 
   handleSubmit = async (data) => {
