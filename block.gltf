@@ -1,0 +1,167 @@
+{
+  "asset": {
+    "version": "2.0",
+    "generator": "THREE.GLTFExporter"
+  },
+  "scenes": [
+    {
+      "nodes": [0],
+      "name": "scene"
+    }
+  ],
+  "scene": 0,
+  "nodes": [
+    {
+      "name": "block",
+      "children": [1],
+      "mesh": 0
+    },
+    {
+      "name": "socket",
+      "matrix": [
+         0.0,-1.0, 0.0, 0.0,
+        -1.0, 0.0, 0.0, 0.0,
+         0.0, 0.0,-1.0, 0.0,
+        -1.2, 0.0, 0.0, 1.0
+      ]
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteOffset": 0,
+      "byteLength": 2016,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 2016,
+      "byteLength": 2016,
+      "target": 34962,
+      "byteStride": 12
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4032,
+      "byteLength": 324,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteOffset": 4356,
+      "byteLength": 12,
+      "target": 34963
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 4368,
+      "uri": "data:application/octet-stream;base64,zcyMv83MjL+amZm/MzOTvzMzk7/c2ZW/3NmVv83MjL/c2ZW/MzOTvzMzk7/c2ZW/zcyMv83MjL+amZm/zcyMv9zZlb/c2ZW/zcyMv83MjL+amZk/MzOTvzMzk7/c2ZU/zcyMv9zZlb/c2ZU/MzOTvzMzk7/c2ZU/zcyMv83MjL+amZk/3NmVv83MjL/c2ZU/zcyMv7zMjD+amZm/vMyMP83MjL+amZm/zcyMv83MjL+amZm/zcyMv83MjL+amZk/vMyMP83MjL+amZk/zcyMv7zMjD+amZk/kZmZP5qZmb/NzIw/fH+HP4R/h79mZoY/oDaWP6A2lr8xeZU/oDaWP6A2lr8xeZU/fH+HP4R/h79mZoY/vMyMP83MjL+amZk/mpmZv5GZmT/NzIw/LjeWvx43lj+aeJU/hH+Hv3x/hz9mZoY/LjeWvx43lj+aeJU/zcyMv7zMjD+amZk/hH+Hv3x/hz9mZoY/kZmZP5qZmb/NzIy/HjeWPy43lr+aeJW/fH+HP4R/h79mZoa/HjeWPy43lr+aeJW/vMyMP83MjL+amZm/fH+HP4R/h79mZoa/mpmZv5GZmT/NzIy/hH+Hv3x/hz9mZoa/oDaWv6A2lj8xeZW/oDaWv6A2lj8xeZW/hH+Hv3x/hz9mZoa/zcyMv7zMjD+amZm/oDaWP6A2lr8xeZU/zcyMv9zZlb/c2ZU/zcyMv5qZmb/NzIw/zcyMv5qZmb/NzIw/kZmZP5qZmb/NzIw/oDaWP6A2lr8xeZU/vMyMP83MjL+amZk/zcyMv83MjL+amZk/zcyMv9zZlb/c2ZU/zcyMv9zZlb/c2ZU/oDaWP6A2lr8xeZU/vMyMP83MjL+amZk/mpmZv83MjL/NzIy/MzOTvzMzk7/c2ZW/3NmVv9zZlb/NzIy/MzOTvzMzk7/c2ZW/mpmZv83MjL/NzIy/3NmVv83MjL/c2ZW/zcyMv5qZmb/NzIy/3NmVv9zZlb/NzIy/MzOTvzMzk7/c2ZW/zcyMv5qZmb/NzIy/MzOTvzMzk7/c2ZW/zcyMv9zZlb/c2ZW/mpmZv83MjL/NzIy/mpmZv5GZmT/NzIy/oDaWv6A2lj8xeZW/mpmZv83MjL/NzIy/oDaWv6A2lj8xeZW/3NmVv83MjL/c2ZW/zcyMv7zMjD+amZm/zcyMv83MjL+amZm/3NmVv83MjL/c2ZW/3NmVv83MjL/c2ZW/oDaWv6A2lj8xeZW/zcyMv7zMjD+amZm/mpmZv83MjL/NzIw/mpmZv83MjL/NzIy/3NmVv9zZlb/NzIw/3NmVv9zZlb/NzIw/mpmZv83MjL/NzIy/3NmVv9zZlb/NzIy/3NmVv9zZlb/NzIy/zcyMv5qZmb/NzIw/3NmVv9zZlb/NzIw/zcyMv5qZmb/NzIw/3NmVv9zZlb/NzIy/zcyMv5qZmb/NzIy/zcyMv9zZlb/c2ZU/MzOTvzMzk7/c2ZU/zcyMv5qZmb/NzIw/MzOTvzMzk7/c2ZU/3NmVv9zZlb/NzIw/zcyMv5qZmb/NzIw/3NmVv83MjL/c2ZU/mpmZv83MjL/NzIw/MzOTvzMzk7/c2ZU/MzOTvzMzk7/c2ZU/mpmZv83MjL/NzIw/3NmVv9zZlb/NzIw/zcyMv9zZlb/c2ZW/HjeWPy43lr+aeJW/zcyMv5qZmb/NzIy/kZmZP5qZmb/NzIy/zcyMv5qZmb/NzIy/HjeWPy43lr+aeJW/HjeWPy43lr+aeJW/zcyMv9zZlb/c2ZW/vMyMP83MjL+amZm/vMyMP83MjL+amZm/zcyMv9zZlb/c2ZW/zcyMv83MjL+amZm/vMyMP83MjL+amZm/zcyMv7zMjD+amZm/fH+HP4R/h79mZoa/fH+HP4R/h79mZoa/zcyMv7zMjD+amZm/hH+Hv3x/hz9mZoa/mpmZv5GZmT/NzIy/mpmZv5GZmT/NzIw/hH+Hv3x/hz9mZoY/mpmZv5GZmT/NzIy/hH+Hv3x/hz9mZoY/hH+Hv3x/hz9mZoa/kZmZP5qZmb/NzIw/kZmZP5qZmb/NzIy/fH+HP4R/h79mZoY/fH+HP4R/h79mZoY/kZmZP5qZmb/NzIy/fH+HP4R/h79mZoa/zcyMv7zMjD+amZk/vMyMP83MjL+amZk/fH+HP4R/h79mZoY/zcyMv7zMjD+amZk/fH+HP4R/h79mZoY/hH+Hv3x/hz9mZoY/mpmZv5GZmT/NzIw/mpmZv83MjL/NzIw/LjeWvx43lj+aeJU/3NmVv83MjL/c2ZU/LjeWvx43lj+aeJU/mpmZv83MjL/NzIw/LjeWvx43lj+aeJU/3NmVv83MjL/c2ZU/zcyMv7zMjD+amZk/zcyMv7zMjD+amZk/3NmVv83MjL/c2ZU/zcyMv83MjL+amZk/mpmZv5GZmT/NzIw/mpmZv83MjL/NzIy/mpmZv83MjL/NzIw/mpmZv83MjL/NzIy/mpmZv5GZmT/NzIw/mpmZv5GZmT/NzIy/zcyMv5qZmb/NzIy/kZmZP5qZmb/NzIw/zcyMv5qZmb/NzIw/kZmZP5qZmb/NzIw/zcyMv5qZmb/NzIy/kZmZP5qZmb/NzIy/fH+HP4R/h79mZoY/hH+Hv3x/hz9mZoa/hH+Hv3x/hz9mZoY/hH+Hv3x/hz9mZoa/fH+HP4R/h79mZoY/fH+HP4R/h79mZoa/9MDHuZQzlLxB9X+/AAAAvwAAAL/3BDW/9wQ1vwAAAAD3BDW/AAAAvwAAAL/3BDW/9MDHuZQzlLxB9X+/AAAAAPcENb/3BDW/lDOUvA1v1rlB9X8/AAAAvwAAAL/3BDU/AAAAAPcENb/3BDU/AAAAvwAAAL/3BDU/lDOUvA1v1rlB9X8/9wQ1vwAAAID3BDU/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAAAAAAAK9EPL+4dy0/AAAAAPcENb/3BDU/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAK9EPL+4dy0/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/AAAAAPcENb/3BDU/AAAAAPcENb/3BDU/AAAAAK9EPL+4dy0/AAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAAAAvwAAAL/3BDW/9wQ1v/cENb8AAACAAAAAvwAAAL/3BDW/AACAvwAAAAAAAAAA9wQ1vwAAAAD3BDW/AAAAAAAAgL8AAAAA9wQ1v/cENb8AAACAAAAAvwAAAL/3BDW/AAAAAAAAgL8AAAAAAAAAvwAAAL/3BDW/AAAAAPcENb/3BDW/AACAvwAAAAAAAAAAAACAvwAAAAAAAAAAr0Q8vwAAAAC4dy2/AACAvwAAAAAAAAAAr0Q8vwAAAAC4dy2/9wQ1vwAAAAD3BDW/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/9wQ1vwAAAAD3BDW/9wQ1vwAAAAD3BDW/r0Q8vwAAAAC4dy2/AAAAAAAAAAAAAIC/AACAvwAAAAAAAAAAAACAvwAAAAAAAAAA9wQ1v/cENb8AAACA9wQ1v/cENb8AAACAAACAvwAAAAAAAAAA9wQ1v/cENb8AAACA9wQ1v/cENb8AAACAAAAAAAAAgL8AAAAA9wQ1v/cENb8AAACAAAAAAAAAgL8AAAAA9wQ1v/cENb8AAACAAAAAAAAAgL8AAAAAAAAAAPcENb/3BDU/AAAAvwAAAL/3BDU/AAAAAAAAgL8AAAAAAAAAvwAAAL/3BDU/9wQ1v/cENb8AAACAAAAAAAAAgL8AAAAA9wQ1vwAAAID3BDU/AACAvwAAAAAAAAAAAAAAvwAAAL/3BDU/AAAAvwAAAL/3BDU/AACAvwAAAAAAAAAA9wQ1v/cENb8AAACAAAAAAPcENb/3BDW/AAAAAG5PPL8NbC2/AAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAG5PPL8NbC2/AAAAAG5PPL8NbC2/AAAAAPcENb/3BDW/AAAAAAAAAAAAAIC/AAAAAAAAAAAAAIC/AAAAAPcENb/3BDW/AAAAAAAAAAAAAIC/9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAbk88vwAAAAANbC0/9wQ1vwAAAID3BDU/bk88vwAAAAANbC0/AACAvwAAAAAAAAAAbk88vwAAAAANbC0/9wQ1vwAAAID3BDU/AAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA/9wQ1vwAAAID3BDU/AAAAAAAAAAAAAIA/AACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAACAvwAAAAAAAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAAAAAAAAAAgL8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAA9wQ1P/cENT8AAAAAAAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMAJAAlACYAJwAoACkAKgArACwALQAuAC8AMAAxADIAMwA0ADUANgA3ADgAOQA6ADsAPAA9AD4APwBAAEEAQgBDAEQARQBGAEcASABJAEoASwBMAE0ATgBPAFAAUQBSAFMAVABVAFYAVwBYAFkAWgBbAFwAXQBeAF8AYABhAGIAYwBkAGUAZgBnAGgAaQBqAGsAbABtAG4AbwBwAHEAcgBzAHQAdQB2AHcAeAB5AHoAewB8AH0AfgB/AIAAgQCCAIMAhACFAIYAhwCIAIkAigCLAIwAjQCOAI8AkACRAJIAkwCUAJUAlgCXAJgAmQCaAJsAnACdAJ4AnwCgAKEAogCjAKQApQCmAKcA"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 168,
+      "max": [
+        1.1999989748001099,
+        1.1999989748001099,
+        1.2000000476837158
+      ],
+      "min": [
+        -1.2000000476837158,
+        -1.2000000476837158,
+        -1.2000000476837158
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 168,
+      "max": [
+        0.7071070075035095,
+        0.7071070075035095,
+        1
+      ],
+      "min": [
+        -1,
+        -1,
+        -1
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5123,
+      "count": 162,
+      "max": [
+        161
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 6,
+      "max": [
+        167
+      ],
+      "min": [
+        162
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "materials": [
+    {
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.5
+      },
+      "name": "Standard"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.003922,
+          0.235294,
+          0.823529,
+          1
+        ],
+        "metallicFactor": 0.5,
+        "roughnessFactor": 0.5
+      },
+      "name": "Standard_ncl1_1"
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "mode": 4,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 2,
+          "material": 0
+        },
+        {
+          "mode": 4,
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1
+          },
+          "indices": 3,
+          "material": 1
+        }
+      ]
+    }
+  ]
+}
