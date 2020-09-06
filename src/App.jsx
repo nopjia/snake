@@ -31,9 +31,13 @@ class App extends React.Component {
     this.setState({ shapes: res.data });
   }
 
-  handleItemClick = (item) => {
-    this.rc.snake.setSequenceSequential(item.sequence);
+  handleItemClick = async (item) => {
     this.setState({ drawerOpened: false });
+
+    await this.rc.snake.reset();
+    await this.rc.snakeMgr.focusCamera();
+    await this.rc.snake.setSequenceSequential(item.sequence);
+    await this.rc.snakeMgr.focusCamera();
   };
 
   handleTabChange = (e, value) => {
@@ -46,17 +50,18 @@ class App extends React.Component {
     });
   };
 
-  handleCameraClick = () => {
-    this.submitFormRef.current.open(this.rc);
+  handleCameraClick = async () => {
+    this.rc.snakeMgr.selected = undefined;
+    await this.rc.snakeMgr.focusCamera();
+    this.submitFormRef.current.open(
+      this.rc.snake.getSequence(),
+      this.rc.getScreenshot(256, 256),
+      this.rc.snake.hasCollision
+    );
   };
 
   handleSubmit = async (data) => {
-    console.log("SUBMIT", data);
-    const res = await axios.post(
-      "https://snake-loopback.herokuapp.com/shapes",
-      data
-    );
-    console.log("SUBMIT", res);
+    await axios.post("https://snake-loopback.herokuapp.com/shapes", data);
   };
 
   render() {
@@ -69,10 +74,10 @@ class App extends React.Component {
           onCamera={this.handleCameraClick}
           onRotateLeft={() => this.rc.snakeMgr.rotateSelected(1)}
           onRotateRight={() => this.rc.snakeMgr.rotateSelected(-1)}
-          onMoveLeft={() => this.rc.snakeMgr.incrementSelected()}
-          onMoveRight={() => this.rc.snakeMgr.decrementSelected()}
+          onMoveLeft={() => this.rc.snakeMgr.decrementSelected()}
+          onMoveRight={() => this.rc.snakeMgr.incrementSelected()}
           onReset={() => this.rc.snake.reset()}
-          onFocus={() => this.rc.snakeMgr.centerCameraAsync()}
+          onFocus={() => this.rc.snakeMgr.focusCamera()}
         >
           <Tabs
             className="content_tabs"

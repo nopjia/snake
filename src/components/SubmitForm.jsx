@@ -15,11 +15,11 @@ class SubmitForm extends React.Component {
     this.state = {
       opened: false,
       image: "",
+      sequence: "",
       alertError: "",
       inputNameValue: "",
       inputNameError: "",
     };
-    this.rc = undefined;
   }
 
   handleCancel() {
@@ -36,21 +36,19 @@ class SubmitForm extends React.Component {
     }
     const formData = {
       name: this.state.inputNameValue,
-      sequence: this.rc.snake.getSequence(),
+      sequence: this.state.sequence,
       image: this.state.image,
     };
     this.props.onSubmit(formData);
     this.setState({ opened: false });
   }
 
-  open(rc) {
-    this.rc = rc;
-    this.rc.snakeMgr.selected = undefined;
-    this.rc.snakeMgr.centerCamera(); // zoom to fit
+  open(sequence, image, hasCollision) {
     this.setState({
       opened: true,
-      image: this.rc.getScreenshot(256, 256),
-      alertError: this.rc.snake.hasCollision ? "Your shape has errors!" : "",
+      image,
+      sequence,
+      alertError: hasCollision ? "Your shape has errors!" : "",
     });
   }
 
