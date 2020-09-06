@@ -30,7 +30,11 @@ class App extends React.Component {
     );
     this.rc.ul.running = true;
 
-    const res = await axios.get(`${process.env.REACT_APP_API_URL}/shapes`);
+    const res = await axios.get(
+      encodeURI(
+        `${process.env.REACT_APP_API_URL}/shapes?filter={"order":["viewCount DESC"]}`
+      )
+    );
     this.setState({ shapes: res.data });
   }
 
@@ -41,6 +45,11 @@ class App extends React.Component {
 
   handleItemClick = async (item) => {
     this.setState({ drawerOpened: false });
+
+    // not awaited
+    axios.patch(
+      `${process.env.REACT_APP_API_URL}/shapes/incrementViewCount/${item.id}`
+    );
 
     await this.rc.snake.reset();
     await this.rc.snakeMgr.focusCamera();
@@ -69,7 +78,7 @@ class App extends React.Component {
   };
 
   handleSubmit = async (data) => {
-    await axios.post(`${process.env.API_URL}/shapes`, data);
+    await axios.post(`${process.env.REACT_APP_API_URL}/shapes`, data);
   };
 
   render() {
