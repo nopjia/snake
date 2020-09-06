@@ -31,6 +31,11 @@ class App extends React.Component {
     this.setState({ shapes: res.data });
   }
 
+  handleResetClick = async () => {
+    await this.rc.snake.reset();
+    await this.rc.snakeMgr.focusCamera();
+  };
+
   handleItemClick = async (item) => {
     this.setState({ drawerOpened: false });
 
@@ -76,7 +81,7 @@ class App extends React.Component {
           onRotateRight={() => this.rc.snakeMgr.rotateSelected(-1)}
           onMoveLeft={() => this.rc.snakeMgr.decrementSelected()}
           onMoveRight={() => this.rc.snakeMgr.incrementSelected()}
-          onReset={() => this.rc.snake.reset()}
+          onReset={this.handleResetClick}
           onFocus={() => this.rc.snakeMgr.focusCamera()}
         >
           <Tabs
