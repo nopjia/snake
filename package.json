@@ -21,7 +21,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "eslint": "eslint --fix --ext .js --ext .jsx .",
-    "deploy": "npm run build && npm run ghpages",
+    "deploy": "npm run clean && npm run build && npm run ghpages",
     "ghpages": "gh-pages --dist build ",
     "clean": "rm -rf build"
   },
