@@ -73,7 +73,7 @@ class App extends React.Component {
     if (this.rc.snake.hasCollision) {
       errorMsg = "Your shape has errors!";
     } else if (await api.hasSequence(sequence)) {
-      errorMsg = "Your shape already exists! Sorry!";
+      errorMsg = "This shape already exists! Sorry!";
     }
 
     this.submitFormRef.current.open(sequence, image, errorMsg);
