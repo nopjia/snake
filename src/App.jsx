@@ -6,6 +6,7 @@ import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
 import SubmitForm from "./components/SubmitForm";
 import * as api from "./api";
+import * as utils from "./utils";
 
 class App extends React.Component {
   constructor(props) {
@@ -25,11 +26,17 @@ class App extends React.Component {
 
   async componentDidMount() {
     this.rc = new Snake(this.canvasContainerRef.current);
-    this.rc.initSnake(
+    this.rc.ul.running = true;
+    await this.rc.initSnake(
       `${process.env.PUBLIC_URL}/block.gltf`,
       `${process.env.PUBLIC_URL}/matcap.jpg`
     );
-    this.rc.ul.running = true;
+
+    const sequenceRoute = utils.getSequenceRoute();
+    if (sequenceRoute) {
+      await this.rc.snake.setSequenceSequential(sequenceRoute);
+      await this.rc.snakeMgr.focusCamera();
+    }
 
     this.setState({ standardShapes: await api.getStandardShapes() });
     this.setState({ shapes: await api.getShapes() });
@@ -45,6 +52,8 @@ class App extends React.Component {
 
     // not awaited
     api.incrementViewCount(item.id);
+
+    window.history.pushState(item.sequence, "snake", item.sequence);
 
     await this.rc.snake.reset();
     await this.rc.snakeMgr.focusCamera();
