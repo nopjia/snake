@@ -32,14 +32,14 @@ class App extends React.Component {
       `${process.env.PUBLIC_URL}/matcap.jpg`
     );
 
+    // not awaited
+    this.loadShapes();
+
     const sequenceStr = new URLSearchParams(window.location.search).get("s");
     if (isValidSequence(sequenceStr)) {
       await this.rc.snake.setSequenceSequential(sequenceStr);
       await this.rc.snakeMgr.focusCamera();
     }
-
-    this.setState({ standardShapes: await api.getStandardShapes() });
-    this.setState({ shapes: await api.getShapes() });
   }
 
   handleResetClick = async () => {
@@ -89,6 +89,11 @@ class App extends React.Component {
 
     this.submitFormRef.current.open(sequence, image, errorMsg);
   };
+
+  async loadShapes() {
+    this.setState({ standardShapes: await api.getStandardShapes() });
+    this.setState({ shapes: await api.getShapes() });
+  }
 
   render() {
     return (

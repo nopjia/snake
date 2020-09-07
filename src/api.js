@@ -17,6 +17,7 @@ const getStandardShapes = async () => {
 const getShapes = async () => {
   const res = await axios.get(
     encodeURI(`${_API_URL}/shapes?filter={"order":["viewCount DESC"]}`)
+    // encodeURI(`${_API_URL}/shapes?filter={"order":["created ASC"]}`)
   );
   return res.data;
 };
