@@ -4,9 +4,13 @@ import GalleryItem from "./GalleryItem";
 const GalleryList = (props) => {
   let elems;
   if (props.items) {
-    elems = props.items.map((item) => {
+    elems = props.items.map((item, index) => {
       return (
-        <GalleryItem item={item} onClick={props.onItemClick} key={item.id} />
+        <GalleryItem
+          item={item}
+          onClick={props.onItemClick}
+          key={item.id ?? index}
+        />
       );
     });
   }

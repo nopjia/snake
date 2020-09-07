@@ -12,8 +12,9 @@ class App extends React.Component {
     super(props);
 
     this.state = {
+      standardShapes: [],
       shapes: [],
-      tab: 1,
+      tab: 0,
       drawerOpened: false,
     };
 
@@ -30,7 +31,11 @@ class App extends React.Component {
     );
     this.rc.ul.running = true;
 
-    const res = await axios.get(
+    let res;
+    res = await axios.get(`${process.env.PUBLIC_URL}/standardShapes.json`);
+    this.setState({ standardShapes: res.data });
+
+    res = await axios.get(
       encodeURI(
         `${process.env.REACT_APP_API_URL}/shapes?filter={"order":["viewCount DESC"]}`
       )
@@ -122,7 +127,10 @@ class App extends React.Component {
           <div className="content_wrap">
             <Container>
               <div hidden={this.state.tab !== 0}>
-                <p>Learn from these standard shapes!</p>
+                <GalleryList
+                  items={this.state.standardShapes}
+                  onItemClick={this.handleItemClick}
+                />
               </div>
               <div hidden={this.state.tab !== 1}>
                 <GalleryList
