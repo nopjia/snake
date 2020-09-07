@@ -2,12 +2,12 @@ import React from "react";
 import { Fab, Icon } from "@material-ui/core";
 
 const Drawer = (props) => {
-  let className = "drawer";
+  const style = {};
   if (props.opened) {
-    className += " opened";
+    style.transform = "translateY(0%)";
   }
   return (
-    <div className={className}>
+    <div className="drawer" style={style}>
       <div className="bar">
         <div className="left">
           <Fab onClick={props.onReset}>
