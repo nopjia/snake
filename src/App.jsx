@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
 import { Container, Tabs, Tab } from "@material-ui/core";
-import axios from "axios";
 import Snake from "snake";
 import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
 import SubmitForm from "./components/SubmitForm";
+import * as api from "./api";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,16 +31,8 @@ class App extends React.Component {
     );
     this.rc.ul.running = true;
 
-    let res;
-    res = await axios.get(`${process.env.PUBLIC_URL}/standardShapes.json`);
-    this.setState({ standardShapes: res.data });
-
-    res = await axios.get(
-      encodeURI(
-        `${process.env.REACT_APP_API_URL}/shapes?filter={"order":["viewCount DESC"]}`
-      )
-    );
-    this.setState({ shapes: res.data });
+    this.setState({ standardShapes: await api.getStandardShapes() });
+    this.setState({ shapes: await api.getShapes() });
   }
 
   handleResetClick = async () => {
@@ -52,11 +44,7 @@ class App extends React.Component {
     this.setState({ drawerOpened: false });
 
     // not awaited
-    if (item.id) {
-      axios.patch(
-        `${process.env.REACT_APP_API_URL}/shapes/incrementViewCount/${item.id}`
-      );
-    }
+    api.incrementViewCount(item.id);
 
     await this.rc.snake.reset();
     await this.rc.snakeMgr.focusCamera();
@@ -84,20 +72,11 @@ class App extends React.Component {
     let errorMsg = "";
     if (this.rc.snake.hasCollision) {
       errorMsg = "Your shape has errors!";
-    } else {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/shapes/hasSequence/${sequence}`
-      );
-      if (res.data) {
-        errorMsg = "Your shape already exists! Sorry!";
-      }
+    } else if (await api.hasSequence(sequence)) {
+      errorMsg = "Your shape already exists! Sorry!";
     }
 
     this.submitFormRef.current.open(sequence, image, errorMsg);
-  };
-
-  handleSubmit = async (data) => {
-    await axios.post(`${process.env.REACT_APP_API_URL}/shapes`, data);
   };
 
   render() {
@@ -143,7 +122,10 @@ class App extends React.Component {
             </Container>
           </div>
         </Drawer>
-        <SubmitForm onSubmit={this.handleSubmit} ref={this.submitFormRef} />
+        <SubmitForm
+          onSubmit={(data) => api.postShape(data)}
+          ref={this.submitFormRef}
+        />
       </div>
     );
   }
