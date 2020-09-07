@@ -52,9 +52,11 @@ class App extends React.Component {
     this.setState({ drawerOpened: false });
 
     // not awaited
-    axios.patch(
-      `${process.env.REACT_APP_API_URL}/shapes/incrementViewCount/${item.id}`
-    );
+    if (item.id) {
+      axios.patch(
+        `${process.env.REACT_APP_API_URL}/shapes/incrementViewCount/${item.id}`
+      );
+    }
 
     await this.rc.snake.reset();
     await this.rc.snakeMgr.focusCamera();
