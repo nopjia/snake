@@ -85,6 +85,8 @@ class App extends React.Component {
       errorMsg = "This shape already exists! Sorry!";
     }
 
+    window.history.pushState(sequence, "snake", `?s=${sequence}`);
+
     this.submitFormRef.current.open(sequence, image, errorMsg);
   };
 
