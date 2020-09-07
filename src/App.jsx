@@ -53,7 +53,7 @@ class App extends React.Component {
     // not awaited
     api.incrementViewCount(item.id);
 
-    window.history.pushState(item.sequence, "snake", item.sequence);
+    window.history.pushState(item.sequence, "snake", `?s=${item.sequence}`);
 
     await this.rc.snake.reset();
     await this.rc.snakeMgr.focusCamera();
