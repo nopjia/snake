@@ -119,7 +119,7 @@ class App extends React.Component {
             centered
           >
             <Tab label="Standard" />
-            <Tab label="Browse" />
+            <Tab label="Submitted" />
           </Tabs>
           <div className="content_wrap">
             <Container>
