@@ -115,7 +115,7 @@ html, body {
 }
 @media (min-width: 960px) {
   .gallerylist {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
 }
 
