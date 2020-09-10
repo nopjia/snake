@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Container, Tabs, Tab } from "@material-ui/core";
+import { Container, Button, Icon } from "@material-ui/core";
 import Snake from "snake";
 import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
@@ -13,9 +13,7 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      standardShapes: [],
       shapes: [],
-      tab: 0,
       drawerOpened: false,
     };
 
@@ -61,10 +59,6 @@ class App extends React.Component {
     await this.rc.snakeMgr.focusCamera();
   };
 
-  handleTabChange = (e, value) => {
-    this.setState({ tab: value });
-  };
-
   handleDrawerToggle = async () => {
     this.setState((state) => {
       return { drawerOpened: !state.drawerOpened };
@@ -90,10 +84,12 @@ class App extends React.Component {
     this.submitFormRef.current.open(sequence, image, errorMsg);
   };
 
-  async loadShapes() {
-    this.setState({ standardShapes: await api.getStandardShapes() });
-    this.setState({ shapes: await api.getShapes() });
-  }
+  loadShapes = async () => {
+    const newShapes = await api.getShapes(this.state.shapes.length);
+    this.setState((state) => {
+      return { shapes: state.shapes.concat(newShapes) };
+    });
+  };
 
   render() {
     return (
@@ -110,31 +106,21 @@ class App extends React.Component {
           onReset={this.handleResetClick}
           onFocus={() => this.rc.snakeMgr.focusCamera()}
         >
-          <Tabs
-            className="content_tabs"
-            value={this.state.tab}
-            onChange={this.handleTabChange}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-          >
-            <Tab label="Standard" />
-            <Tab label="Submitted" />
-          </Tabs>
           <div className="content_wrap">
             <Container>
-              <div hidden={this.state.tab !== 0}>
-                <GalleryList
-                  items={this.state.standardShapes}
-                  onItemClick={this.handleItemClick}
-                />
-              </div>
-              <div hidden={this.state.tab !== 1}>
-                <GalleryList
-                  items={this.state.shapes}
-                  onItemClick={this.handleItemClick}
-                />
-              </div>
+              <GalleryList
+                items={this.state.shapes}
+                onItemClick={this.handleItemClick}
+              />
+              <Button
+                className="loadmore"
+                onClick={this.loadShapes}
+                startIcon={<Icon>refresh</Icon>}
+                size="large"
+                style={{ marginBottom: "24px" }}
+              >
+                Load More
+              </Button>
             </Container>
           </div>
         </Drawer>

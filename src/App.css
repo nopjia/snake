@@ -164,8 +164,12 @@ html, body {
 .content_wrap {
   box-sizing: border-box;
   padding-top: 24px;
-  height: calc(100% - 48px);
+  height: 100%;
   overflow-y: auto;
+}
+.content_wrap > .MuiContainer-root {
+  display: flex;
+  flex-direction: column;
 }
 
 .submitform .image {

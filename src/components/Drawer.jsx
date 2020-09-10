@@ -44,7 +44,7 @@ const Drawer = (props) => {
           </Tooltip>
         </div>
         <div className="right">
-          <Tooltip title="Save Shape">
+          <Tooltip title="Submit Shape">
             <Fab onClick={props.onCamera}>
               <Icon>camera_alt</Icon>
             </Fab>
