@@ -14,10 +14,15 @@ const getStandardShapes = async () => {
   return _standardShapes;
 };
 
-const getShapes = async () => {
+const getShapes = async (offset = 0, limit = 15) => {
+  const filter = {
+    // order: ["created ASC viewCount DESC"],
+    order: ["viewCount DESC"],
+    offset,
+    limit,
+  };
   const res = await axios.get(
-    encodeURI(`${_API_URL}/shapes?filter={"order":["viewCount DESC"]}`)
-    // encodeURI(`${_API_URL}/shapes?filter={"order":["created ASC"]}`)
+    encodeURI(`${_API_URL}/shapes?filter=${JSON.stringify(filter)}`)
   );
   return res.data;
 };
