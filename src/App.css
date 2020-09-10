@@ -185,3 +185,29 @@ html, body {
   margin: 0 auto;
   margin-bottom: 12px;
 }
+
+.colormenu  {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.colormenu .MuiFab-extended {
+  height: 56px;
+  border-radius: 28px;
+}
+.colormenu input[type="color"] {
+  margin: 0 6px;
+}
+.colormenu .colorpanel {
+  position: absolute;
+  right: 0;
+  width: 56px;
+  transition: width 0.5s ease;
+}
+.colormenu .colorpanel.open {
+  width: 202px;
+}
+.colormenu .colorpanel .MuiFab-label {
+  justify-content: flex-start;
+  overflow: hidden;
+}

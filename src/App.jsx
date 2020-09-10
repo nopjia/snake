@@ -5,6 +5,7 @@ import Snake from "snake";
 import Drawer from "./components/Drawer";
 import GalleryList from "./components/GalleryList";
 import SubmitForm from "./components/SubmitForm";
+import ColorMenu from "./components/ColorMenu";
 import * as api from "./api";
 import { isValidSequence } from "./utils";
 
@@ -15,6 +16,7 @@ class App extends React.Component {
     this.state = {
       shapes: [],
       drawerOpened: false,
+      colorOpened: false,
     };
 
     this.canvasContainerRef = React.createRef();
@@ -59,9 +61,18 @@ class App extends React.Component {
     await this.rc.snakeMgr.focusCamera();
   };
 
-  handleDrawerToggle = async () => {
+  handleDrawerToggle = () => {
     this.setState((state) => {
-      return { drawerOpened: !state.drawerOpened };
+      return {
+        drawerOpened: !state.drawerOpened,
+        colorOpened: false,
+      };
+    });
+  };
+
+  handleColorToggle = () => {
+    this.setState((state) => {
+      return { colorOpened: !state.colorOpened };
     });
   };
 
@@ -95,6 +106,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="canvas bg_checker" ref={this.canvasContainerRef} />
+        <ColorMenu
+          opened={this.state.colorOpened}
+          onChange1={(e) => this.rc.snake.mat1.color.set(e.target.value)}
+          onChange2={(e) => this.rc.snake.mat2.color.set(e.target.value)}
+          onToggle={this.handleColorToggle}
+        />
         <Drawer
           opened={this.state.drawerOpened}
           onToggle={this.handleDrawerToggle}
