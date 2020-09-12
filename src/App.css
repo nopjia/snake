@@ -90,10 +90,6 @@ html, body {
       "left right"
       "center center";
   }
-  .drawer .bar .left { justify-content: flex-end; }
-  .drawer .bar .right { justify-content: flex-start; }
-  .drawer .bar .left > button { margin: 0 6px; }
-  .drawer .bar .right > button { margin: 0 6px; }
 }
 
 .drawer .content {
