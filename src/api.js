@@ -4,13 +4,13 @@ const _API_URL = process.env.REACT_APP_API_URL;
 
 const getShapes = async (offset = 0, limit = 15) => {
   const filter = {
-    // order: ["created ASC"],
     order: ["viewCount DESC"],
     offset,
     limit,
   };
   const res = await axios.get(
     encodeURI(`${_API_URL}/shapes?filter=${JSON.stringify(filter)}`)
+    // `${process.env.PUBLIC_URL}/shapes.json`
   );
   return res.data;
 };

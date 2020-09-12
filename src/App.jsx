@@ -86,6 +86,8 @@ class App extends React.Component {
     let errorMsg = "";
     if (this.rc.snake.hasCollision) {
       errorMsg = "Your shape has errors!";
+    } else if (/^0+$/.test(sequence)) {
+      errorMsg = "That's a blank shape!";
     } else if (await api.hasSequence(sequence)) {
       errorMsg = "This shape already exists! Sorry!";
     }
