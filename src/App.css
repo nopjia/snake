@@ -47,19 +47,10 @@ html, body {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "left center right";
   align-items: start;
+  pointer-events: none;
 }
-@media (max-width: 600px) {
-  .drawer {
-    --drawer-padding: 148px;
-  }
-  .drawer .bar {
-    margin-top: -136px;
-    height: 136px;
-    grid-template-columns: 1fr 1fr;    
-    grid-template-areas:
-      "left right"
-      "center center";
-  }
+.drawer .bar button {
+  pointer-events: all;
 }
 .drawer .bar > div {
   flex-grow: 1;
@@ -67,6 +58,7 @@ html, body {
 .drawer .bar .left {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   grid-area: left;
 }
 .drawer .bar .right {
@@ -84,6 +76,25 @@ html, body {
 .drawer .bar .left > button { margin-left: 12px; }
 .drawer .bar .right > button { margin-right: 12px; }
 .drawer .bar .center > button { margin: 0 6px; }
+
+
+@media (max-width: 560px) {
+  .drawer {
+    --drawer-padding: 148px;
+  }
+  .drawer .bar {
+    margin-top: -136px;
+    height: 136px;
+    grid-template-columns: 1fr 1fr;    
+    grid-template-areas:
+      "left right"
+      "center center";
+  }
+  .drawer .bar .left { justify-content: flex-end; }
+  .drawer .bar .right { justify-content: flex-start; }
+  .drawer .bar .left > button { margin: 0 6px; }
+  .drawer .bar .right > button { margin: 0 6px; }
+}
 
 .drawer .content {
   background: #fafafa;
